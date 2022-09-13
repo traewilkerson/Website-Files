@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+    <!-- Head Information -->
+<head>
+    <meta charset="UTF-8">
+    <title>Color Guessing Game</title>
+
+
+    <!-- CSS Styles -->
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flexbox;
+            align-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            vertical-align: center;
+        }
+    </style>
+</head>
+
+
+<!-- Body Information -->
+<body>
+
+
+    <!-- Title -->
+    <h1>Color Guessing Game</h1>
+
+
+    <!-- Javascript Integration -->
+    <button type="button" onclick="runGame()">Start Game</button>
+
+
+    <!-- Script Element -->
+    <script>
+
+
+        // Establish the colors to be picked from
+        const COLORS_ARRAY = ['blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow']
+
+
+        // Function #1 - is the game play
+    function runGame() {
+        let guess = '';
+        let correct = false;
+        let numTries = 0
+        const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
+        const target = COLORS_ARRAY [targetIndex];
+        console.log('The color is ' + target)
+
+
+        // do while loop
+        do {
+            guess = prompt('I am thinking of one of these colors: \n\n ' + COLORS_ARRAY.join(', ') + ' \n\n What color am I thinking of?\n');
+            if (guess === null) {
+                return (alert('Thank you for being a QUITTER!'));
+            }
+            numTries += 1;
+            correct = checkGuess(guess, target)
+        } while (!correct)
+
+        alert('Your guess was correct! The correct answer was ' + target + ' Congratulations!' + '\n\nIt only took you ' + numTries + ' tries!');
+        document.body.style.background = guess;
+    }
+
+
+        // Function #2 - is to check the persons guesses
+        function checkGuess(guess, target) {
+            let correct = false;
+
+            if (!COLORS_ARRAY.includes(guess)) {
+                alert('Your answer was not an option, try again stupid!');
+            } else if (guess > target) {
+                alert('Your answer was too high on the list! Arigato Gozaimasu');
+            } else if (guess < target) {
+                alert('Your answer was too low on the list! Gracias');
+            } else {
+                correct = true;
+            }
+            return correct;
+        }
+    </script>
+</body>
+</html>
+<!-- Who did it? Code007 -->

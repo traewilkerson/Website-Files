@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Head Infomation: Find a Partner Spectacular -->
+<head>
+    <meta charset="UTF-8">
+    <title>Find a Partner Spectacular</title>
+
+
+    <!-- CSS Sytlesheet -->
+    <!-- Changed body font -->
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+        }
+    </style>
+
+
+    <!-- Changed Paragraph Margins -->
+    <style>
+        p {
+            margin: 0;
+        }
+    </style>
+
+
+    <!-- Changed Legend: Background Color, Border, Text Color, and Padding -->
+    <style>
+        legend {
+            background: purple;
+            border-radius: 10px;
+            color: white;
+            padding: 12px;
+        }
+    </style>
+
+
+    <!-- Changed fieldset: Background Color, Border, Border Radius, Margin, and Width -->
+    <style>
+        fieldset {
+            background: lavender;
+            border: 10px solid darkblue;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            width: 720px;
+        }
+    </style>
+
+
+    <!-- Changed all divs margin -->
+    <style>
+        div {
+            margin: 10px;
+        }
+    </style>
+
+
+    <!-- Changed all label elements: Display, text alignment, position alignment, and width -->
+    <style>
+        label {
+            display: inline-block;
+            text-align: right;
+            vertical-align: top;
+            width: 200px;
+        }
+    </style>
+
+
+    <!-- Both Radio Buttons and Checkboxes will have an automatic width -->
+    <style>
+        input[type="radio"]+label, input[type="checkbox"]+label {
+            width: auto;
+        }
+    </style>
+
+
+    <!-- All Class names with range-caption will have darkcyan backgrounds, white text, extra padding, and center alignment -->
+    <style>
+        .range-caption {
+            background: darkcyan;
+            color: white;
+            padding: 6px;
+            text-align: center;
+        }
+    </style>
+
+
+    <!-- All submit buttons have changed backgrounds, borders, colors, font sizes, and padding -->
+    <style>
+        input[type="submit"] {
+            background: darkcyan;
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            padding: 12px;
+        }
+    </style>
+
+
+    <!-- All hover elements inside of a div will have blue text -->
+    <style>
+        div:hover {
+            color: blue;
+        }
+    </style>
+</head>
+
+
+<!-- Body Information -->
+<body>
+
+
+    <!-- Title of the Dating Site -->
+    <h1>Enter Your Details For Our Dating Website</h1>
+
+
+    <!-- Beginning of the Form -->
+    <form action="https://us-central1-nucamp-production.cloudfunctions.net/post/formdata" method="POST" enctype="multipart/form-data">
+    
+
+    <!-- First Section of the form -->
+    <fieldset>
+        <legend>Your Face</legend>
+
+        <div>
+            <label for="avatar">Upload Your Image</label>
+            <input type="file" id="avatar" required>
+            <p>Image Preview: <img src="" alt="" id="preview" width="500"/></p> 
+        </div>
+    </fieldset>
+
+
+    <!-- Second Section of the form -->
+    <fieldset>
+        <legend>Your Details</legend>
+
+
+        <!-- First Div: "Enter your Name" text field -->
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required>
+        </div>
+
+
+        <!-- Second Div: Pick a Gender -->
+        <div>
+            <label>Gender</label>
+
+            <input type="radio" id="woman" name="gender" value="woman" required>
+            <label for="woman">Woman</label>
+
+            <input type="radio" id="man" name="gender" value="woman" required>
+            <label for="man">Man</label>
+        </div>
+
+
+        <!-- Third Div: Type your Age -->
+        <div>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age">
+        </div>
+
+
+        <!-- Fourth Div: Enter your date of birth -->
+        <div>
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+
+
+        <!-- Fifth Div: Enter your favorite color -->
+        <div>
+            <label for="color">Favorite Color</label>
+            <input type="color" id="color" name="color">
+        </div>
+
+
+        <!-- Sixth Div: Pick your country -->
+        <div>
+            <label for="country">Country</label>
+            <select name="country" id="country">
+
+            <option value="auto select" selected>Choose a country</option>
+            <option value="brazil">Brazil</option>
+            <option value="france">France</option>
+            <option value="japan">Japan</option>
+            <option value="libya">Libya</option>
+            <option value="usa">USA</option>
+        </select>
+        </div>
+
+
+        <!-- Seventh Div: Pick your salary range -->
+        <div>
+            <label for="salary">Salary</label>
+            <span class="range-caption">Poor</span>
+            <input type="range" id="salary" name="salary" min="0" max="100" value="50">
+            <span class="range-caption">Rich</span>
+        </div>
+    </fieldset>
+
+
+    <!-- Third Section on Form: Your Contact Information-->
+    <fieldset>
+        <legend>Your Contact Information</legend>
+
+
+        <!-- First Div: Email Section in this field -->
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+
+        <!-- Second Div: Phone Section in this field -->
+        <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+
+
+        <!-- Third Div: Address Section in this field -->
+        <div>
+            <label for="address">Address</label>
+            <textarea name="address" id="address" cols="40" rows="10"></textarea>
+        </div>
+
+
+        <!-- Fourth Div: Contact Method Section in this field -->
+        <div>
+            <label>Contact Method(s)</label>
+
+            <input type="checkbox" name="contact" id="emailCheckbox" value="email">
+            <label for="emailCheckbox">Email</label>
+
+            <input type="checkbox" name="contact" id="phoneCheckbox" value="phone">
+            <label for="phoneCheckbox">Phone</label>
+        </div>
+    </fieldset>
+
+
+<!-- Submit Button for the Whole Form -->
+    <div>
+        <input type="submit">
+    </div>
+    </form>
+
+
+    <!-- Javascript Link for Picture -->
+    <script src="https://url.nucamp.co/datingjs"></script>
+</body>
+</html>
+<!-- Who did it? Code007 -->
